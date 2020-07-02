@@ -7,9 +7,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
-# def media(request):
-#     return render()
-
 @login_required()
 def special(request):
     return HttpResponse('YOU ARE LOGED IN')
@@ -32,10 +29,6 @@ def form(request):
 def index(request):
     return render(request,'five_app/index.html')
 
-# def login(request):
-#     return render(request, 'five_app/login.html')
-# 
-
 def register(request):
     registered = False
     if request.method == 'POST':
@@ -45,7 +38,6 @@ def register(request):
         if user.is_valid() and profile.is_valid():
             user = user.save()
             user.set_password(user.password)
-            # user.save()
             user.active=True
             user.staff=False
             user.admin=False
@@ -63,7 +55,7 @@ def register(request):
             registered = True
 
         else:
-            print("something went wrong user or profile is unvalid")
+            print("something went wrong, user or profile is unvalid")
             print(user.errors,profile.errors)
    
     else:
@@ -76,13 +68,11 @@ def register(request):
 
 
 def user_login(request):
-
-
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
         print(username, password)
-        user = authenticate(request,username=username,password=password)
+        user = authenticate(request,username = username, password = password)
         print('after aunthenticate', user)
 
         if user:
