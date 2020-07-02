@@ -1,0 +1,39 @@
+<!DOCTYPE html> {% extends 'five_app/base.html' %} {% load static %}
+
+<section id="clients" class="clients">
+    <div class="container">
+        <a href="{% static " images/client-1.png " %}"><img src="{% static " images/client-1.png " %}" alt="" height="100" width="{% widthratio 100 100 100   %}">
+            <a href="{% static " images/client-2.png " %}"><img src="{% static " images/client-2.png " %}" alt="" height="100" width="{% widthratio 100 100 100   %}">
+                <a href="{% static " images/client-3.png " %}"><img src="{% static " images/client-3.png " %}" alt="" height="100" width="{% widthratio 100 100 100   %}">
+                    <a href="{% static " images/client-4.png " %}"><img src="{% static " images/client-4.png " %}" alt="" height="100" width="{% widthratio 100 100 100   %}">
+                        <a href="{% static " images/client-5.png " %}"><img src="{% static " images/client-5.png " %}" alt="" height="100" width="{% widthratio 100 100 100   %}">
+                            <a href="{% static " images/client-6.png " %}"><img src="{% static " images/client-6.png " %}" alt="" height="100" width="{% widthratio 100 100 100   %}">
+                                <a href="{% static " images/client-7.png " %}"><img src="{% static " images/client-7.png " %}" alt="" height="100" width="{% widthratio 100 100 100   %}">
+                                    <a href="{% static " images/client-8.png " %}"><img src="{% static " images/client-8.png " %}" alt="" height="100" width="{% widthratio 100 100 100   %}">
+    </div>
+</section>
+<!-- End Clients Section -->
+{% block body_block %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href={% static "css/style.css" %} rel="stylesheet">
+<meta content="" name="descriptison">
+<meta content="" name="keywords">
+
+<!-- Favicons -->
+<link href={% static "assets/img/favicon.png" %} rel="icon">
+<link href={% static "assets/img/apple-touch-icon.png" %} rel="apple-touch-icon">
+<h1>Here we in login.html and we working to add more information</h1>
+<h3><strong> we workin to connect to our database </strong></h3>
+<div class='jumbotron'>
+    <h1> Please Log In</h1>
+    <form action="{% url 'five_app:login' %}" method="POST">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name='username' placeholder="input your username">
+        <label for="password">Password</label>
+        <input type="password" name='password' placeholder="input your password">
+        <input class='btn btn-primary' type="submit" name="" id="" value="Log in">
+    </form>
+</div>
+
+{% endblock body_block %}}
