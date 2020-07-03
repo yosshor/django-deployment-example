@@ -17,7 +17,7 @@ def user_logout(request):
     return HttpResponseRedirect(reverse('index'))
 
 def base(request):
-    redundant = {'redundant': "<h1>we here because its redundant</h2>"}
+    redundant = {'redundant': "<h1>redundant</h1>"}
     return render(request,'five_app/base.html',context=redundant)
 
 def help(request):
@@ -31,6 +31,7 @@ def index(request):
 
 def register(request):
     registered = False
+    
     if request.method == 'POST':
         user = UserForm(data = request.POST)
         profile = Userprofileinfoform(data = request.POST)
@@ -43,14 +44,13 @@ def register(request):
             user.admin=False
             user.save()
             messages.success(request, 'Account created successfully')
-
             profile = profile.save(commit=False)
             profile.user = user
 
             if 'profile_image' in request.FILES:
                 print('we found that    ')
                 profile.profile_image = request.FILES['profile_image']
-            
+        
             profile.save()
             registered = True
 
@@ -68,6 +68,7 @@ def register(request):
 
 
 def user_login(request):
+    
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
